@@ -1,0 +1,124 @@
+<section class="background h-100 px-3">
+       <h1 class="my-5">COMPANY REGISTRATION FORM</h1>
+<form [formGroup]= "regForm" (ngSubmit)="onSubmit()">
+
+    <div class="container cardy"> 
+
+           <div class="row mt-2">
+                  <div class="col-12 col-md-6 my-2">
+                   <!--      <label for="fname" class="black-label"><span class="required">*</span>First Name:</label>-->
+                         <input type="text" placeholder="FirstName" class="form-control" formControlName="fname" >
+                         <div *ngIf="regForm.get('fname')?.touched && regForm.get('fname')?.hasError('required')">*First name required</div>
+                         <div *ngIf="regForm.get('fname')?.touched &&regForm.get('fname')?.hasError('minlength')">*Enter atleast 3 characters</div>
+                         <div *ngIf="regForm.get('fname')?.touched &&regForm.get('fname')?.hasError('maxlength')">*Enter below 25 characters</div>
+                         <div *ngIf="regForm.get('fname')?.touched &&regForm.get('fname')?.hasError('pattern')">*Wrong Pattern</div>                
+                  </div>
+                 
+                  
+                  <div class="col-12 col-md-6 my-2">
+                        <!-- <label for="lastname"  class="black-label"><span class="required">*</span>Last Name:</label>-->
+                         <input type="text" placeholder="lastname" class="form-control" formControlName="lname">
+                         <div *ngIf="regForm.get('lname')?.touched && regForm.get('lname')?.hasError('required')">*Last name required</div>
+                         <div *ngIf="regForm.get('lname')?.touched &&regForm.get('lname')?.hasError('minlength')">*Enter atleast 3 characters</div>
+                         <div *ngIf="regForm.get('lname')?.touched &&regForm.get('lname')?.hasError('maxlength')">*Enter below 25 characters</div>
+                         <div *ngIf="regForm.get('lname')?.touched &&regForm.get('lname')?.hasError('pattern')">*Wrong Pattern</div>                
+                  
+           </div> 
+           </div>
+           <div class="row">
+           <div class="col-12 col-md-6 my-2">
+              <!--  <label for="Email" class="black-label"><span class="required">*</span>Email:</label>-->
+                <input type="text" placeholder="Email" class="form-control" formControlName="Email"   required>
+                <div *ngIf="regForm.get('Email')?.touched && regForm.get('Email')?.hasError('required')">*Email is required</div>
+                <div *ngIf="regForm.get('Email')?.touched &&regForm.get('Email')?.hasError('pattern')">*Enter Proper formate</div>                     
+         </div>
+  
+  
+         <div class="col-12 col-md-6 my-2">
+              <!--  <label for="uname" class="black-label"><span class="required">*</span>Username:</label>-->
+                <input type="text" placeholder="Username" class="form-control" formControlName="uname">
+                <div *ngIf="regForm.get('uname')?.touched && regForm.get('uname')?.hasError('required')">*Username required</div>
+                <div *ngIf="regForm.get('uname')?.touched &&regForm.get('uname')?.hasError('minlength')">*Enter atleast 3 characters</div>
+                <div *ngIf="regForm.get('uname')?.touched &&regForm.get('uname')?.hasError('maxlength')">*Enter below 25 characters</div>
+         </div>
+        </div>
+        <div class="row">
+        <div class="col-12 col-md-6 my-2">
+              <!--   <label for="pwd" class="black-label"><span class="required">*</span>Password:</label>-->
+                 <input type="password" placeholder="Password" class="form-control" formControlName="pwd" >
+                 <div *ngIf="regForm.get('pwd')?.touched && regForm.get('pwd')?.hasError('required')">*Password is required</div>
+                 <div *ngIf="regForm.get('pwd')?.touched &&regForm.get('pwd')?.hasError('minlength')">*Enter atleast 3 characters</div>
+                </div>
+               <div class="col-12 col-md-6 my-2">
+                <!-- <label for="pwd2" class="black-label"><span class="required">*</span>Re-enter Password:</label>-->
+                 <input type="password" placeholder="Confirm Password" class="form-control" formControlName="pwd2" >
+                 <div *ngIf="regForm.get('pwd2')?.touched && regForm.get('pwd2')?.hasError('required')">*Password is required</div>
+                 <div *ngIf="regForm.get('pwd2')?.touched &&regForm.get('pwd2')?.hasError('minlength')">*Enter atleast 3 characters</div>
+                 <div *ngIf="regForm.get('pwd2')?.touched &&regForm.get('pwd2')?.hasError('match')">*Password does not match</div>
+                 <div *ngIf="regForm.get('pwd2')?.touched && regForm.get('pwd')?.value !== regForm.get('pwd2')?.value" class="invalid">password must match</div>
+          </div>
+       </div>
+       <div class="row">
+         <div class="col-12 col-md-6 my-2">
+               <input formControlName="mobilenumber"  placeholder="Enter your mobile number" type="text"   class="form-control">  
+                 <div *ngIf="regForm.get('mobilenumber')?.touched && regForm.get('mobilenumber')?.hasError('required')">Please enter the mobile number</div>   
+                 <div *ngIf="regForm.get('mobilenumber')?.touched && regForm.get('mobilenumber')?.hasError('pattern')">EnterValid number</div>   
+       </div>
+              <div class="col-12 col-md-6 my-2">
+             <input formControlName="city"  placeholder="City" type="text"   class="form-control" >  
+              <div *ngIf="regForm.get('city')?.touched && regForm.get('city')?.hasError('required')">required</div>   
+            <div *ngIf="regForm.get('city')?.touched && regForm.get('city')?.hasError('pattern')">Incorrect</div>   
+              </div>
+       </div>
+       
+       <div class="row m-2">
+              <div class="form-check">
+                     <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" formControlName="check">
+                     <label class="form-check-label" for="flexCheckIndeterminate" class="black-label">
+                       checkbox
+                     </label>
+                     <!-- <div *ngIf="regForm.get('check')?.touched && regForm.get('check')?.hasError('required')">please click on the checkbox</div>    -->
+
+                   </div>
+            </div>
+        <div class="row m-3">
+                  <div class="col-12 text-center ">
+                         <button class="btn btn-primary" type="submit">Register Now</button>
+                  </div>
+           </div>
+   
+
+    <!-- <div *ngIf="childData"  class="parent py-4 text-end">
+       <table class=" table table-bordered table-striped">
+              <thead>
+                     <tr class="text-center" >
+                     <th>FirstName</th>
+                     <th>LastName</th>
+                    <th>Email</th>
+                 <th>UserName</th>
+           <th>Password</th>
+                     <th>CPassword</th>
+             <th>MNumber</th>
+                   <th>City</th>
+                   </tr>
+               </thead>
+               <tbody>
+                     <tr class="text-center">
+                      <td>{{childData?.fname}}</td>
+                            <td>{{childData?.lname}}</td>
+                            <td>{{childData?.Email}}</td>
+                            <td>{{childData?.uname}}</td>
+                            <td>{{childData?.pwd}}</td>
+                            <td>{{childData?.pwd2}}</td>
+                            <td>{{childData?.mobilenumber}}</td>
+                          <td>{{childData?.city}}</td>
+                       </tr>
+               </tbody>
+       </table>
+    </div> -->
+</div>
+    </form>
+   
+
+   
+</section>

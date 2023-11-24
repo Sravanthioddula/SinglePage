@@ -1,0 +1,17 @@
+/* .container{
+    margin: 10rem 4rem;
+    overflow-y: hidden;
+} */
+div{
+    color: rgb(228, 68, 68);
+}
+.black-label{
+    color:rgb(194, 36, 36);
+}
+.required{
+    color: rgb(228, 68, 68);
+}
+.container{
+    overflow: hidden;
+    vertical-align: center;
+}

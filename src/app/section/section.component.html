@@ -1,0 +1,68 @@
+<!-- display-form-data.component.html -->
+<app-header></app-header>
+<div class="container mt-5 py-5">
+    <h2 class="text-center">Stored Form Data</h2>
+    <div *ngIf="storedFormData">
+      <div>
+        <p class="text-center">Main Form Data:</p>
+             <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                <th scope="col">First Name</th>
+                 <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Pincode</th>
+                <th scope="col">Description</th>
+              </tr>
+                 </thead>
+                 <tbody>
+                 <tr>
+
+         <th scope="row">1</th>
+       <td>{{ storedFormData.formData.firstname }}</td>
+        <td>{{ storedFormData.formData.lastname }}</td>
+          <td> {{storedFormData.formData.email }}</td>
+          <td> {{storedFormData.formData.pincode }}</td>
+           <td>{{storedFormData.formData.Description}}</td>
+        </tr>
+       </tbody>
+       </table>
+      
+      </div>
+      <div *ngIf="storedFormData.entriesData && storedFormData.entriesData.length > 0">
+        <strong class="text-center">Form Array Entries:</strong>
+        <div *ngFor="let entry of storedFormData.entriesData; let i = index">
+          <div>
+            <h4>Entry {{ i + 1 }}</h4>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                   <th scope="col">First Name</th>
+                   <th scope="col">Last Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Pincode</th>
+                  <th scope="col">Description</th>
+                </tr>
+                   </thead>
+            <tbody>
+          <tr>
+           <th scope="row">1</th>
+              <td>{{ entry.fname }}</td>
+              <td>{{ entry.lname }}</td>
+              <td>{{entry.email}}</td>
+              <td>{{entry.pincode}}</td>
+              <td>{{entry.Description}}</td>
+             </tr>
+             </tbody>
+             </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!storedFormData">
+      <p>No stored form data available.</p>
+    </div>
+  </div>
+  

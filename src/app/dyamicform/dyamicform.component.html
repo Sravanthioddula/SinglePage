@@ -1,0 +1,99 @@
+<app-header></app-header>
+<div class="container mt-5 py-5 ">
+    
+    <form [formGroup]="myForm" (ngSubmit)="addEntry()">
+      <div class="container py-2 mt-5 cardy">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-4">
+            <input type="text" class="form-control" placeholder="First Name" formControlName="firstname">
+            <div *ngIf="myForm.get('firstname')?.touched && myForm.get('firstname')?.hasError('required')">*First name required</div>
+            <div *ngIf="myForm.get('firstname')?.touched &&myForm.get('firstname')?.hasError('minlength')">*Enter atleast 3 characters</div>
+            <div *ngIf="myForm.get('firstname')?.touched &&myForm.get('firstname')?.hasError('maxlength')">*Enter below 25 characters</div>
+            <div *ngIf="myForm.get('firstname')?.touched &&myForm.get('firstname')?.hasError('pattern')">*Wrong Pattern</div>              
+          </div>
+          <div class="col-12 col-md-4">
+            <input type="text" class="form-control" placeholder="Last Name" formControlName="lastname">
+            <div *ngIf="myForm.get('lastname')?.touched && myForm.get('lastname')?.hasError('required')">*Last name required</div>
+              <div *ngIf="myForm.get('lastname')?.touched &&myForm.get('lastname')?.hasError('minlength')">*Enter atleast 3 characters</div>
+            <div *ngIf="myForm.get('lastname')?.touched &&myForm.get('lastname')?.hasError('maxlength')">*Enter below 25 characters</div>
+            <div *ngIf="myForm.get('lastname')?.touched &&myForm.get('lastname')?.hasError('pattern')">*Wrong Pattern</div>              
+        </div>
+        </div>
+        <div class="row justify-content-center py-4">  
+            <div class="col-12 col-md-4">
+                <input type="Email" class="form-control" placeholder="Email" formControlName="email" required>
+                <div *ngIf="myForm.get('email')?.touched && myForm.get('email')?.hasError('required')">*Email is required</div>
+                <div *ngIf="myForm.get('email')?.touched &&myForm.get('email')?.hasError('pattern')">*Enter Proper formate</div>
+            </div>
+            <div class="col-12 col-md-4">
+                <input type="text" class="form-control" placeholder="pincode" formControlName="pincode">
+                <div *ngIf="myForm.get('pincode')?.touched && myForm.get('pincode')?.hasError('required')">*Pincode is required</div>
+                <div *ngIf="myForm.get('pincode')?.touched &&myForm.get('pincode')?.hasError('pattern')">*Enter Proper formate</div>
+ 
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <textarea class="form-control" formControlName="Description" placeholder="Description" rows="3"></textarea>
+                <div *ngIf="myForm.get('Description')?.touched && myForm.get('Description')?.hasError('required')">*Please enter your message</div>
+
+            </div>
+        </div>
+      </div>
+      <div formArrayName="entries">
+        <div *ngFor="let entry of formEntries; let i = index" [formGroupName]="i">
+          <div class="container">
+            <div class="row justify-content-center py-2">
+              <div class="col-12 col-md-4">
+                <input type="text" class="form-control" placeholder="First Name" formControlName="fname">
+                <div *ngIf="entry.get('fname')?.touched && entry.get('fname')?.errors?.['required']">*First name required</div>
+                <div *ngIf="entry.get('fname')?.touched &&entry.get('fname')?.hasError('minlength')">*Enter atleast 3 characters</div>
+            <div *ngIf="entry.get('fname')?.touched &&entry.get('fname')?.hasError('maxlength')">*Enter below 25 characters</div>
+            <div *ngIf="entry.get('fname')?.touched &&entry.get('fname')?.hasError('pattern')">*Wrong Pattern</div>              
+            </div>
+              <div class="col-12 col-md-4">
+                <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
+                <div *ngIf="entry.get('lname')?.touched && entry.get('lname')?.errors?.['required']">*First name required</div>
+                <div *ngIf="entry.get('lname')?.touched &&entry.get('lname')?.hasError('minlength')">*Enter atleast 3 characters</div>
+            <div *ngIf="entry.get('lname')?.touched &&entry.get('lname')?.hasError('maxlength')">*Enter below 25 characters</div>
+            <div *ngIf="entry.get('lname')?.touched &&entry.get('lname')?.hasError('pattern')">*Wrong Pattern</div>              
+            
+            </div>
+                  
+            </div>
+           <div class="row justify-content-center py-2">
+            <div class="col-12 col-md-4">
+                <input type="Email" class="form-control" placeholder="Email" formControlName="email" required>
+                <div *ngIf="entry.get('email')?.touched && entry.get('email')?.errors?.['required']">*Email is required</div>
+                <div *ngIf="entry.get('email')?.touched && entry.get('email')?.hasError('pattern')">*Enter Proper formate</div>
+            </div>
+            <div class="col-12 col-md-4">
+                <input type="text" class="form-control" placeholder="pincode" formControlName="pincode">
+              <div *ngIf="entry.get('pincode')?.touched && entry.get('pincode')?.errors?.['required']">*Pincode is required</div>
+                <div *ngIf="entry.get('pincode')?.touched && entry.get('pincode')?.hasError('pattern')">*Enter Proper formate</div>
+              </div>
+           </div>
+           <div class="row justify-content-center py-2">
+            <div class="col-12 col-md-8">
+                <textarea class="form-control" formControlName="Description" placeholder="Description" rows="3"></textarea>
+                <div *ngIf="entry.get('Description')?.touched && entry.get('Description')?.errors?.['required']">*Please enter your message</div>
+            </div>
+           </div>
+           <div class="row justify-content-center ">
+              <div class="col-12 col-md-8">
+              <button type="button" class="btn btn-danger" (click)="removeEntry(i)"><i class="bi bi-x-circle"></i></button>
+             </div> 
+             </div>
+            </div>
+            
+        </div>
+      </div>
+      <div class="row py-2 justify-content-end mb-5">
+        <div class="col-md-4 ">
+            <button type="button" class="btn btn-primary me-2" (click)="onSubmit()">submit</button>
+          <button type="submit" class="btn btn-primary me-2">Add More</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-footer class="fixed-bottom"></app-footer>

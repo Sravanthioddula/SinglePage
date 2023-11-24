@@ -1,0 +1,74 @@
+<section class="contact h-100 mt-5 " id="page">
+
+  <div class="py-1">
+      <div class="row">
+    <div class="col-md-12">
+      <h1>CONTACT US HERE</h1>
+    </div>
+  </div>
+  </div>
+<div class="container mt-2 page">
+  <form [formGroup]= "contactForm" (ngSubmit)="onSubmit()" class="p-3">
+
+       <div class="row justify-content-center">
+        <div class="col-12 col-md-4 my-5 pl-4 text-center" >
+          <img src="assets/transflow1 (copy).jpg" class="image">
+        </div>
+              <div class="col-12 col-md-8 my-5">
+                     <mat-card class="contact_card">
+                            <mat-card-content class="contact_content">
+                                   <mat-form-field>
+                                          <mat-label>Your Name</mat-label>
+                                          <input matInput  formControlName="fname" >
+                                          <div *ngIf="contactForm.get('fname')?.touched && contactForm.get('fname')?.hasError('required')">*First name required</div>
+
+                                        </mat-form-field>
+                                        <mat-form-field>
+                                          <mat-label>Your Mail</mat-label>
+                                          <input matInput formControlName="Email"  >
+                                          <div *ngIf="contactForm.get('Email')?.touched && contactForm.get('Email')?.hasError('required')">*Email is required</div>
+                <div *ngIf="contactForm.get('Email')?.touched &&contactForm.get('Email')?.hasError('pattern')">*Enter Proper formate</div> 
+                                        </mat-form-field>
+                                        <mat-form-field>
+                                          <mat-label>Your Message</mat-label>
+
+                                          <textarea matInput formControlName="textarea" ></textarea>
+                                          <div *ngIf="contactForm.get('textarea')?.touched && contactForm.get('textarea')?.hasError('required')">*Please Enter your Query</div>
+
+                                        </mat-form-field>
+                                        
+                                        <button mat-button color="primary">Submit</button>
+                            </mat-card-content>
+                          </mat-card>
+              </div>
+       </div>
+       </form>
+
+      
+    <!-- <div *ngIf="newData"  class="parent py-4 text-end">
+       <table class=" table table-bordered table-striped">
+              <thead>
+                     <tr class="text-center" >
+                     <th>FirstName</th>
+                     <th>Email</th>
+                    <th>Feedback</th>
+                    </tr>
+               </thead>
+               <tbody>
+                     <tr class="text-center">
+                      <td>{{newData?.fname}}</td>
+                            <td>{{newData?.Email}}</td>
+                            <td>{{newData?.textarea}}</td>
+                          
+                            
+                       </tr>
+               </tbody>
+       </table>
+    </div>  -->
+</div>
+
+     
+
+
+</section>
+

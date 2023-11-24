@@ -1,0 +1,23 @@
+.navbar-nav
+ {
+    .nav-item
+ {
+ .nav-link{
+    color:white;
+    margin: 0% 2em;
+  
+  }
+ }
+ .nav-link:hover{
+   text-decoration:underline 1px;
+   
+ }
+}
+.navbar{
+  height: 60px;
+}
+@media(max-width:768px){
+  .navbar{
+    height:auto !important
+  }
+}

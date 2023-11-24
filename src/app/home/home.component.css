@@ -1,0 +1,47 @@
+/* .carousel-caption{
+    margin:25% 0;
+    font-size:px;
+
+} 
+ .carousel-caption h1{
+    font-weight: bold;
+    color:brown;
+}
+.carousel-caption p{
+    font-weight:bold;
+    font-size: 20px;
+    color:brown;
+}
+.picsum-img-wrapper{
+    opacity: 0.6;
+}    */
+
+.carousel-caption{
+    top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  
+}
+.carousel-caption h1{
+    font-size: 30px;
+    font-weight: 700;
+    line-height:2;
+    color: rgb(53, 125, 184);
+  }
+  .carousel-caption p{
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1;
+    color: rgb(53, 125, 184);
+  }
+  @media(max-width:426px){
+   img{
+
+    height: auto !important;
+    margin-top: 20%;
+   }
+  }
+  @media(max-width:425px) {
+    
+  }

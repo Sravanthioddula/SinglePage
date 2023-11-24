@@ -1,0 +1,45 @@
+/* .container-fluid{
+width:100%;
+}
+/* .icon
+{
+display: flex;
+text-decoration:none;
+} 
+.iconbar ul{
+    display: flex;
+    font-size: 20px;
+    color: white;
+    opacity: 0.6;
+    text-decoration: none;
+    
+
+}
+.ul a{
+    text-decoration: none;
+}
+li{
+        margin: 0 1rem;
+} */
+.page{
+    list-style:none;    
+    display: flex;
+    padding: 0%;
+    font-size:small
+    }
+    .page li{ 
+        margin:0 0.4rem;
+       
+    }
+    .page1{
+        list-style: none;
+        text-decoration: none;
+        
+    }
+    @media (max-width:768px) {
+        ul{
+            justify-content:center;
+        }
+    }
+        
+    

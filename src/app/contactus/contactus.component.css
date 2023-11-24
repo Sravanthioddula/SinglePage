@@ -1,0 +1,90 @@
+
+.contact{
+    height: 100vh;
+
+    /* padding: 6% 0; */
+ background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+h1{
+ font-size: 40px;
+     font-weight: 700;
+     font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    color:rgb(53, 125, 184);
+
+}
+
+.cardi{
+
+    border: #aaa solid 2px;
+
+    border-radius: 15px;
+
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.2);
+
+    background: rgba(255, 255, 255, 0.7);
+
+}
+
+.contact_card{
+    width: 100%;
+    background-color:  rgba(255, 255, 255, 0.3);
+}
+.contact_content{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+  }
+  mat-form-field{
+    width: 100%;
+  }
+  /* input.ng-touched.ng-invalid{
+
+    border: 2px solid rgb(228, 68, 68);
+} */
+div{
+    color: rgb(228, 68, 68);
+}
+.black-label{
+    color:rgb(49, 48, 48);
+}
+/* .required{
+    color: rgb(228, 68, 68);
+} */
+ .image{
+    /* height: 350px;
+    width:450px; */
+    border-radius: 10px;
+} 
+.page{
+    border: #aaa solid 2px;
+
+    border-radius: 15px;
+
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.2);
+
+    background: rgba(255, 255, 255, 0.7);
+
+}
+@media(min-width:768px){
+    .image{
+        width:100%
+    }
+}
+#aboutus{
+    margin-top: 50px;
+}
+@media(max-width:501px){
+    .image{
+        width:100%
+    }
+}
+@media(max-width:425px){
+h1{
+    font-size: 20px !important;
+}
+}

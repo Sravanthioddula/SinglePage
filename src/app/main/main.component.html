@@ -1,0 +1,84 @@
+
+<section id="mainpage" (click)="clickOutside()">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="assets/kpt.png"></a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" [ngClass]="{'collapse': isCollapsed}" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#home" >Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#aboutus">About us</a>
+            </li>
+            
+            
+           <li class="nav-item dropdown">
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Career
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" routerLink="/dynamic-form">IT software developing</a></li>
+                <li><a class="dropdown-item" href="#"></a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" routerLink="/formdata" >Inside sales</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" routerLink="/user">Digital Marketing</a></li>
+                <li><a class="dropdown-item" routerLink="/allusers">lazyloading</a></li>
+                
+  
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#register">SignUp</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/login">Login</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link"  routerLink="/login">Logout</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </section>
+    <section id="header">
+    <section #home>
+  <app-home id="home"></app-home>
+    </section>
+    <section  id="products" class="py-5">
+      <app-products ></app-products>
+    </section>
+    <section id="register" class="py-5">
+      <app-registration (userSubmitted)="onUserSubmitted($event)"></app-registration>
+    </section>
+    <section>
+      <!-- <app-regchild [childData]="users"></app-regchild> -->
+      <app-regchild [users]="users"></app-regchild>
+
+    </section>
+    <section id="contact" class="py-5 mt-5">
+      <app-contactus (formSubmitted)="onFormSubmitted($event)" ></app-contactus>
+    </section>
+    <section id="cchild" class="py-5">
+      <app-contactchild [jobs]="jobs"></app-contactchild>
+    </section>
+    <section id="aboutus" >
+      <app-aboutus ></app-aboutus>
+    </section>
+    
+  <!-- <app-contactus></app-contactus> -->
+  <app-footer></app-footer>
+  <router-outlet></router-outlet> 
+  </section>

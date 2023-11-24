@@ -1,0 +1,103 @@
+ 
+<!-- <div class="container py-5">
+    <table *ngIf="parentData">
+      <tr *ngFor="let data of parentData">
+        <td>{{ data.fname }}</td>
+        <td>{{ data.Email }}</td>
+       <td>{{data.textarea}}</td>
+       </tr>
+    </table>
+    </div> -->
+   
+      <!-- <div class="container py-5" *ngIf="hasUsers; else noUsersMessage">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>First Name</th>
+              <th>Email</th>
+              <th>Feedback</th>
+            </tr>
+          </thead>
+           <tbody>
+            <tr *ngFor="let data of parentData">
+              <td>{{ data.fname }}</td>
+              <td>{{ data.Email }}</td>
+              <td>{{ data. textarea}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+       -->
+       <div class="container text-center">
+        <p>Data Table</p>
+       </div>
+       <div class="container py-4" *ngIf="hasUsers; else noUsersMessage">
+       
+        <table class="table table-bordered table-striped text-center">
+          <thead class="thead-dark">
+            <tr>
+              <th>First Name</th>
+              <th>Email</th>
+              <th>Feedback</th>
+              <th>Actions</th>
+               </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of jobs;let i=index">
+             <td>
+              <div *ngIf="data.isEdit">
+             <input type="text" [(ngModel)]="data.fname" class="form-control">
+              </div> 
+              <div *ngIf="!data.isEdit">
+              {{ data.fname }}
+            </div>
+            </td>
+            <td>
+            <div *ngIf="data.isEdit">
+              <input type="text" [(ngModel)]="data.Email" class="form-control">
+               </div>
+               <div *ngIf="!data.isEdit">
+              {{ data.Email }}
+            </div>
+            </td>
+            <td>
+               <div *ngIf="data.isEdit">
+              <input type="text" [(ngModel)]="data.textarea" class="form-control">
+               </div> 
+               <div *ngIf="!data.isEdit">
+                {{ data.textarea}}
+               </div>
+              </td>
+               <td>
+              <div class="text-center" *ngIf="data.isEdit">
+                <button type="button" class="btn btn-success me-2" (click)="onSave(data)" >Save</button>
+                <button type="button" class="btn btn-success" (click)="onCancel(data)">cancel</button>
+              </div>
+              <div  class="text-center" *ngIf="!data.isEdit">
+               <button type="button" class="btn btn-primary me-2" (click)="onEdit(data)">Edit</button>
+              </div>
+              </td>
+              </tr>
+          </tbody>
+        </table>
+        </div>
+        <ng-template #noUsersMessage> 
+          <div class="container py-5">
+          <table class="table table-bordered table-striped text-center">
+            <thead class="thead-dark">
+              <tr>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Feedback</th>
+                <th>Actions</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="9" class="text-center">No users registered</td>
+                      </tr>
+            </tbody>
+          </table>
+        </div>
+        </ng-template>

@@ -1,0 +1,28 @@
+.container{
+    overflow: hidden;
+    /* margin-left: 100px; */
+}
+input.ng-touched.ng-invalid{
+
+    border: 2px solid rgb(228, 68, 68);
+}
+div{
+    color: rgb(228, 68, 68);
+}
+.black-label{
+    color:rgb(49, 48, 48);
+}
+.required{
+    color: rgb(228, 68, 68);
+}
+/* .cardy{
+
+    border: #aaa solid 1px;
+   
+    border-radius: 15px;
+
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.2);
+
+    background: rgba(255, 255, 255, 0.7);
+
+} */

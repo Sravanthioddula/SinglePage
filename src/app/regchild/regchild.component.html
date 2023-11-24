@@ -1,0 +1,146 @@
+<!-- <div class="container py-5">
+   <table>
+    <tbody>
+    <tr> 
+      <td> {{ childData?.fname }}</td>
+       <td>  {{ childData?.lname }}</td>
+       <td> {{ childData?.Email }}</td>
+       <td> {{ childData?.uname }}</td>
+       <td> {{ childData?.pwd }}</td>
+       <td> {{ childData?.pwd2 }}</td>
+       <td> {{ childData?.mobilenumber }}</td>
+       <td> {{ childData?.city }}</td>
+      </tr>
+    </tbody>
+      </table>
+
+</div> -->
+<!-- <div *ngIf="hasUsers; else noUsersMessage"> -->
+  <div class="container text-center py-4" >
+  <p>Data Table</p>
+</div>
+<section class="mt-5">
+<div class="container mt-1 py-5" *ngIf="hasUsers; else noUsersMessage">
+ 
+  <table class="table table-bordered table-striped text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>First Name</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Confirm Passwod</th>
+        <th>Mobile Number</th>
+        <th>City</th>
+        <th class="th-lg">Actions</th>
+       </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of users; let i=index">
+          <td>
+            <div *ngIf="data.isEdit">
+          <input type="text" [(ngModel)]="data.fname" class="form-control">
+            </div> 
+            <div *ngIf="!data.isEdit">
+            {{ data.fname }}
+          </div>
+          </td>
+          <td>
+          <div *ngIf="data.isEdit">
+         <input type="text" [(ngModel)]="data.lname" class="form-control">
+          </div> 
+          <div *ngIf="!data.isEdit">
+          {{ data.lname }}
+        </div>
+        </td>
+        <td>
+          <div *ngIf="data.isEdit">
+         <input type="text" [(ngModel)]="data.Email" class="form-control">
+          </div> 
+          <div *ngIf="!data.isEdit">
+          {{ data.Email }}
+        </div>
+        </td>
+        <td>
+          <div *ngIf="data.isEdit">
+         <input type="text" [(ngModel)]="data.uname" class="form-control">
+          </div> 
+          <div *ngIf="!data.isEdit">
+          {{ data.uname }}
+        </div>
+        </td>
+        <td>
+          <div *ngIf="data.isEdit">
+         <input type="text" [(ngModel)]="data.pwd" class="form-control">
+          </div> 
+          <div *ngIf="!data.isEdit">
+          {{ data.pwd }}
+        </div>
+        </td>
+        <td>
+          <div *ngIf="data.isEdit">
+         <input type="text" [(ngModel)]="data.pwd2" class="form-control">
+          </div> 
+          <div *ngIf="!data.isEdit">
+          {{ data.pwd2 }}
+        </div>
+        </td>
+        
+        <td>
+          <div *ngIf="data.isEdit">
+         <input type="text" [(ngModel)]="data.mobilenumber" class="form-control">
+          </div> 
+          <div *ngIf="!data.isEdit">
+          {{ data.mobilenumber }}
+        </div>
+        </td>
+       
+        <td>
+          <div *ngIf="data.isEdit">
+         <input type="text" [(ngModel)]="data.city" class="form-control">
+          </div> 
+          <div *ngIf="!data.isEdit">
+          {{ data.city }}
+        </div>
+        </td>
+        <td>
+          <div class="text-center d-flex" *ngIf="data.isEdit">
+          <button type="button" class="btn btn-success me-2" (click)="onSave(data)" >Save</button>
+          <button type="button" class="btn btn-success me-3" (click)="onCancel(data)">cancel</button>
+        </div>
+        <div  class="text-center" *ngIf="!data.isEdit">
+         <button type="button" class="btn btn-primary me-2" (click)="onEdit(data)">Edit</button>
+        </div>
+      </td>
+  </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noUsersMessage> 
+  <div class="container">
+  <table class="table table-bordered table-striped text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>First Name</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Confirm Password</th>
+        <th>Mobile Number</th>
+        <th>City</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="9" class="text-center">No users registered</td>
+              </tr>
+    </tbody>
+  </table>
+</div>
+</ng-template>
+<!-- <app-registration (updatedincoming)="updatedvalues($event)"></app-registration> -->
+</section>

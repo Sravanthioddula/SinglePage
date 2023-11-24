@@ -1,0 +1,27 @@
+div{
+    color: rgb(228, 68, 68);
+}
+.black-label{
+    color:rgb(194, 36, 36);
+}
+.required{
+    color: rgb(228, 68, 68);
+}
+.container{
+    overflow: hidden;
+    vertical-align: center;
+}
+#exampleModalLabel{
+    color:black;
+}
+.modal-body{
+    color:black;
+}
+#sec{
+    background-color: rgb(6, 30, 51);
+    /* height: 92vh; */
+}
+   
+.th{
+    color: white;
+}
